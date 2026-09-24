@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pudding Gotik - Dessert Box & Pudding Ball</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Icon Sosmed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --ivory: #FFFFF0;
+            --soft-pink: #FFC0CB;
+            --soft-blue: #ADD8E6;
+            --text-dark: #555555;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--ivory);
+            color: var(--text-dark);
+            background-image: radial-gradient(var(--soft-pink) 1px, transparent 1px), radial-gradient(var(--soft-blue) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+
+        /* HEADER & BRANDING */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, var(--ivory) 100%);
+        }
+
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: 800;
+            /* Perpaduan warna soft untuk nama brand */
+            background: linear-gradient(45deg, #FFB6C1, #87CEFA, #DDA0DD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(255, 182, 193, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #777;
+            font-weight: 300;
+        }
+
+        /* PRODUCT SECTION */
+        .products-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 30px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Warna border hover tiap kartu */
+        .card-coklat:hover { border-color: #D2B48C; }
+        .card-strawberry:hover { border-color: var(--soft-pink); }
+        .card-melon:hover { border-color: #98FB98; }
+        .card-mangga:hover { border-color: #FFDAB9; }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%; /* Efek membulat mengikuti cup bulat */
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--soft-blue), var(--soft-pink));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* FOOTER & SOSMED */
+        footer {
+            background-color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+            border-top: 2px dashed var(--soft-pink);
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .ig-bg { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .wa-bg { background-color: #25D366; }
+        .tt-bg { background-color: #000000; }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Dekorasi Tambahan */
+        .blob-1, .blob-2 {
+            position: absolute;
+            z-index: -1;
+            filter: blur(40px);
+            opacity: 0.4;
+        }
+        .blob-1 {
+            width: 300px; height: 300px;
+            background: var(--soft-pink);
+            top: -50px; left: -50px;
+            border-radius: 50%;
+        }
+        .blob-2 {
+            width: 400px; height: 400px;
+            background: var(--soft-blue);
+            top: 200px; right: -100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+
+    <header>
+        <!-- Nama Brand dengan desain gradien soft -->
+        <h1 class="brand-name">Pudding Gotik</h1>
+        <p class="tagline">Kelezatan Dessert Box & Pudding Ball Cup dalam Setiap Suapan 🍡</p>
+    </header>
+
+    <section class="products-container">
+        <!-- Produk 1: Coklat -->
+        <div class="product-card card-coklat">
+            <!-- Ganti 'coklat.png' dengan path gambar Anda jika digunakan secara lokal -->
+            <img src="https://via.placeholder.com/300x300.png?text=Pudding+Coklat" alt="Pudding Ball Coklat" class="product-image">
+            <h3 class="product-title">Choco Ball</h3>
+            <p class="product-desc">Kenyalnya pudding ball rasa coklat yang lumer di mulut, disajikan di dalam cup bulat yang imut.</p>
+            <div class="product-price">Rp 7.000 - 10.000</div>
+        </div>
+
+        <!-- Produk 2: Strawberry -->
+        <div class="product-card card-strawberry">
+            <img src="https://via.placeholder.com/300x300.png?text=Pudding+Strawberry" alt="Pudding Ball Strawberry" class="product-image">
+            <h3 class="product-title">Berry Blush</h3>
+            <p class="product-desc">Kesegaran strawberry berpadu manisnya susu dalam pudding ball lembut di wadah cup bulat elegan.</p>
+            <div class="product-price">Rp 7.000 - 10.000</div>
+        </div>
+
+        <!-- Produk 3: Melon -->
+        <div class="product-card card-melon">
+            <img src="https://via.placeholder.com/300x300.png?text=Pudding+Melon" alt="Pudding Ball Melon" class="product-image">
+            <h3 class="product-title">Melon Breeze</h3>
+            <p class="product-desc">Aroma melon yang khas dan segar dalam setiap butiran pudding ball. Pilihan pas di cuaca panas!</p>
+            <div class="product-price">Rp 7.000 - 10.000</div>
+        </div>
+
+        <!-- Produk 4: Mangga -->
+        <div class="product-card card-mangga">
+            <img src="https://via.placeholder.com/300x300.png?text=Pudding+Mangga" alt="Pudding Ball Mangga" class="product-image">
+            <h3 class="product-title">Mango Tango</h3>
+            <p class="product-desc">Manisnya mangga tropis dalam tekstur pudding yang kenyal dan *bouncy* di dalam cup bulat.</p>
+            <div class="product-price">Rp 7.000 - 10.000</div>
+        </div>
+    </section>
+
+    <footer>
+        <h2 class="footer-title">Pesan Sekarang & Kepoin Kami!</h2>
+        <div class="social-icons">
+            <a href="#" class="social-icon ig-bg" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon wa-bg" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="social-icon tt-bg" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 Pudding Gotik. Sweetness overload.</p>
+    </footer>
+
+</body>
+</html>
